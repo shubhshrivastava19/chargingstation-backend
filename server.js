@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
-const cors = require('cors');
+const cors = require('cors');   
 const Auth=require('./routes/authRoutes')
 const Stations=require('./routes/stationRoutes');
 
@@ -10,6 +10,8 @@ connectDB();
 
 const app = express();
 app.use(cors());
+app.options('*', cors());
+
 app.use(express.json());
 
 app.use('/api/auth', Auth );
